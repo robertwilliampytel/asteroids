@@ -1,5 +1,6 @@
 import pygame
 from   constants import *
+from   player    import *
 
 
 def main():
@@ -11,6 +12,7 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
     
     color_black = pygame.Color(0, 0, 0)
 
@@ -25,6 +27,8 @@ def main():
                 return
 
         screen.fill(color_black)
+
+        player.draw(screen)
 
         pygame.display.flip()
 
