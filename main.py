@@ -1,6 +1,9 @@
 import pygame
-from   constants import *
-from   player    import *
+import random
+from   constants     import *
+from   player        import *
+from   asteroid      import *
+from   asteroidfield import *
 
 
 def main():
@@ -11,14 +14,20 @@ def main():
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
 
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
+    screen         = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    player         = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
+    asteroid_field = AsteroidField()
 
     updatable = pygame.sprite.Group()
     drawable  = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
 
     updatable.add(player)
     drawable.add(player)
+
+    Asteroid.containers = (updatable, drawable, asteroids)
+
+    updatable.add(asteroid_field)
     
     color_black = pygame.Color(0, 0, 0)
 
