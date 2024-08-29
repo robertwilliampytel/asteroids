@@ -19,9 +19,9 @@ class Asteroid(circleshape.CircleShape):
 
     def move(self, dt):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
-        #self.position += forward * PLAYER_SPEED * dt
-        self.position += pygame.Vector2(forward * self.velocity.x * dt, forward * self.velocity.y * dt)
-        #self.position.update(x = forward * self.position.x  * dt, y = forward * self.position.y * dt)
+        speed_multiplier = pygame.Vector2(ASTEROID_SPEED_MULTIPLIER * dt,
+                                          ASTEROID_SPEED_MULTIPLIER * dt)
+        self.position += forward * self.velocity * speed_multiplier
 
     
     def update(self, dt):
