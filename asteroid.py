@@ -9,19 +9,15 @@ class Asteroid(circleshape.CircleShape):
     
     def __init__(self, x, y, radius):
         super().__init__(x, y, radius)
-        self.rotation = random.randrange(ROTATION_MIN, ROTATION_MAX + 1, 1)
 
 
     def draw(self, screen):
         color_white = pygame.Color(255, 255, 255)
-        pygame.draw.circle(screen, color_white, self.position, self.radius)
+        pygame.draw.circle(screen, color_white, self.position, self.radius, 2)
     
 
     def move(self, dt):
-        forward = pygame.Vector2(0, 1).rotate(self.rotation)
-        speed_multiplier = pygame.Vector2(ASTEROID_SPEED_MULTIPLIER * dt,
-                                          ASTEROID_SPEED_MULTIPLIER * dt)
-        self.position += forward * self.velocity * speed_multiplier
+        self.position += self.velocity * dt
 
     
     def update(self, dt):

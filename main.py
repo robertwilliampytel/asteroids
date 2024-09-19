@@ -45,8 +45,6 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        screen.fill(color_black)
-
         for updateable in updatables:
             updateable.update(dt)
 
@@ -58,6 +56,8 @@ def main():
                 if shot.has_collided_with(asteroid):
                     shot.kill()
                     asteroid.split()
+
+        screen.fill(color_black)
 
         for drawable in drawables:
             drawable.draw(screen)
