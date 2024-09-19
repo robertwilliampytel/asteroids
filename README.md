@@ -1,2 +1,2 @@
 # Asteroids
-The classic game of asteroids in python
+The classic game of Asteroids in python
