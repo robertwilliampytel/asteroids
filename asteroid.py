@@ -43,3 +43,4 @@ class Asteroid(circleshape.CircleShape):
 
         asteroid_one.velocity = random_angle_one * 1.5
         asteroid_two.velocity = random_angle_two * 1.5
+
